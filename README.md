@@ -79,23 +79,21 @@ candidate_votes.reset_index()
 candidate_votes.plot(kind='bar')
 ```
 ![GitHub Logo](/pngn8.PNG)
-```
-candidate_votes1=pd.DataFrame(candidate_votes1)
-candidate_votes1.reset_index()
-```
+
 ```
 #Now we group by candidate and state, because we want to see how many votes each candidate got in every state
 candidate_votes1=results.groupby(['candidate','state'])['votes'].sum()
 candidate_votes1=pd.DataFrame(candidate_votes1)
 candidate_votes1.reset_index()
 ```
+![GitHub Logo](/pngn9.PNG)
 ```
 #Now we plot a bar graph
 #Unfortunately it is important to note that the data on the graph is not clear
 #Improvements on this code are welcome
 candidate_votes1.plot(kind='bar',figsize=(90,30))
 ```
-
+![GitHub Logo](/pngn10.PNG)
 
 
 
