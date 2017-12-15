@@ -29,22 +29,26 @@ import matplotlib.pyplot as plt
 results=pd.read_csv("primary_results.csv")
 results.head()
 ```
+![GitHub Logo](/pngn1.PNG)
 ```
 # We ran the dtypes function quickly to better understand our data
 # We observe that with have both integers and ojects
 results.dtypes
 ```
+![GitHub Logo](/pngn2.PNG)
 ```
 #Next we create a variable vot_results
 #In this variable we create a smaller table made up of the columns 'party' and 'votes'
 vot_results = results[['party','votes']]
 vot_results.head
 ```
+![GitHub Logo](/pngn3.PNG)
 ```
 #This step is not necessary
 #It was just done to understand more and play around with the data
 vot_results.describe()
 ```
+![GitHub Logo](/pngn4.PNG)
 ```
 #Next we use our table/variable to group our data by party and sum up all the votes
 #This is because we want to see how many votes democratic and republican candidates garnered respectively
@@ -53,11 +57,13 @@ vot_results.describe()
 parties=vot_results.groupby(by='party').sum()
 parties.reset_index()
 ```
+![GitHub Logo](/pngn5.PNG)
 ```
 #Now we call in the function plot to visualize our averages
 #We set kind to "pie" , because we want a pie graph
 parties.plot(kind='pie',y='votes')
 ```
+![GitHub Logo](/pngn6.PNG)
 ```
 #Now because we want to see how many votes each candidate gathered, we group candidate
 # And sum up the votes
@@ -67,14 +73,27 @@ candidate_votes=results.groupby(by='candidate')['votes'].sum()
 candidate_votes=pd.DataFrame(candidate_votes)
 candidate_votes.reset_index()
 ```
+![GitHub Logo](/pngn7.PNG)
 ```
 ##We set kind to "bar" , because we want a bar graph
 candidate_votes.plot(kind='bar')
 ```
+![GitHub Logo](/pngn8.PNG)
 ```
 candidate_votes1=pd.DataFrame(candidate_votes1)
 candidate_votes1.reset_index()
 ```
+```
+#Now we group by candidate and state, because we want to see how many votes each candidate got in every state
+candidate_votes1=results.groupby(['candidate','state'])['votes'].sum()
+candidate_votes1=pd.DataFrame(candidate_votes1)
+candidate_votes1.reset_index()
+```
+```
+#Now we plot a bar graph
+#Unfortunately it is important to note that the data on the graph is not clear
+#Improvements on this code are welcome
+candidate_votes1.plot(kind='bar',figsize=(90,30))
 ```
 
 
