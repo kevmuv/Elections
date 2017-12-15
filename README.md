@@ -42,6 +42,8 @@ results.dtypes
 vot_results = results[['party','votes']]
 vot_results.head
 ```
+*The data below does not portray the entire table.*
+
 ![GitHub Logo](/pngn3.PNG)
 ```
 #This step is not necessary
@@ -86,6 +88,8 @@ candidate_votes1=results.groupby(['candidate','state'])['votes'].sum()
 candidate_votes1=pd.DataFrame(candidate_votes1)
 candidate_votes1.reset_index()
 ```
+*The entire table is not fully represented.*
+
 ![GitHub Logo](/pngn9.PNG)
 ```
 #Now we plot a bar graph
